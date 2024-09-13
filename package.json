@@ -1,0 +1,40 @@
+{
+  "name": "mimir-bot",
+  "version": "1.0.0",
+  "description": "The all-knowing bot.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node .",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix"
+  },
+  "author": "HoratiuMarginean",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.16.2",
+    "dotenv": "^16.4.5",
+    "mariadb": "^3.3.1",
+    "puppeteer": "^23.3.0",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "eslint": "^9.10.0",
+    "prettier": "^3.3.3",
+    "prettier-eslint": "^16.3.0"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-unused-vars": "warn"
+    }
+  }
+}
