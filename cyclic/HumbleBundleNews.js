@@ -1,3 +1,4 @@
+import os from 'node:os';
 import { launch } from 'puppeteer';
 import { SECOND, MINUTE, HOUR, DAY } from '../common/constants.js';
 
@@ -41,9 +42,23 @@ async function HumbleBundleNews(client, targetChannel, dbConnection)
                 }
             }
 
-            const browser = await launch({
-                executablePath: '/usr/bin/chromium-browser' // For Windows, this should be commented
-            });
+            let browser;
+            switch (os.type().toLowerCase())
+            {
+                case 'windows_nt':
+                {
+                    browser = await launch();
+                }
+                break;
+
+                case 'linux':
+                {
+                    browser = await launch({
+                        executablePath: '/usr/bin/chromium-browser'
+                    });
+                }
+                break;
+            }
             const mainPage = await browser.newPage();
             await mainPage.goto(humbleBundleGamesURL);
 
