@@ -1,4 +1,4 @@
-import { Model, DataTypes } from 'sequelize';
+import { Model, DataTypes } from "sequelize";
 
 export default (connection) => {
   class bundle extends Model {}
@@ -26,15 +26,26 @@ export default (connection) => {
       type: DataTypes.TEXT,
       allowNull: false
     },
+    store:
+    {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    contents:
+    {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
     expiration_timestamp:
     {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    store_name:
+    is_removed:
     {
-      type: DataTypes.TEXT,
-      allowNull: false
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
     },
     id_message:
     {
@@ -42,7 +53,6 @@ export default (connection) => {
       allowNull: false
     }
   }, {
-    sequelize: connection,
-    timestamps: false
+    sequelize: connection
   });
 };
