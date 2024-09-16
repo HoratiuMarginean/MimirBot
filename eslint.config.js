@@ -17,7 +17,8 @@ export default [
       "semi": ["error", "always"],
       "indent": ["error", 2, { "SwitchCase": 1 }],
       "quotes": ["error", "double"],
-      "comma-dangle": ["error", "never"]
+      "comma-dangle": ["error", "never"],
+      "object-curly-spacing": ["error", "always"]
     }
   }
 ];
