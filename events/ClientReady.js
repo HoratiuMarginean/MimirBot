@@ -1,19 +1,18 @@
 import "dotenv/config";
 
 import { Events, ActivityType } from "discord.js";
-import connection from "../database/connection.js";
 
-import { HumbleBundleNews } from "../cyclic/HumbleBundleNews.js";
+import { HumbleBundleGames } from "../cyclic/HumbleBundleGames.js";
 
 const name = Events.ClientReady;
 const once = true;
-function execute(client)
+function execute(client, connection)
 {
   console.log(`Ready! Logged in as ${client.user.tag}`);
 
   client.user.setActivity("Reading...", { type: ActivityType.Custom });
 
-  HumbleBundleNews(client, process.env.HUMBLE_BUNDLE_CHANNEL_ID, connection);
+  HumbleBundleGames(client, process.env.HUMBLE_BUNDLE_CHANNEL_ID, connection);
 }
 
 export { name, once, execute };

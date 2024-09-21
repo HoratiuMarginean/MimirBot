@@ -1,7 +1,7 @@
 import { Events } from "discord.js";
 
 const name = Events.InteractionCreate;
-async function execute(interaction)
+async function execute(interaction, connection)
 {
   if (!interaction.isChatInputCommand())
   {
@@ -17,7 +17,7 @@ async function execute(interaction)
 
   try
   {
-    await command.execute(interaction);
+    await command.execute(interaction, connection);
   }
   catch (error)
   {

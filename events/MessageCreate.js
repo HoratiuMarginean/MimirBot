@@ -1,7 +1,7 @@
 import { Events } from "discord.js";
 
 const name = Events.MessageCreate;
-async function execute(message)
+async function execute(message, connection)
 {
   // Only accept DMs
   if (message.channel.type != 1)
