@@ -7,7 +7,7 @@ const data = new SlashCommandBuilder()
   .addStringOption(option => option.setName("command")
     .setDescription("The command to reload.")
     .setRequired(true));
-async function execute(interaction)
+async function execute(interaction, dbConnection)
 {
   const commandName = interaction.options.getString("command", true).toLowerCase();
   const command = interaction.client.commands.get(commandName);

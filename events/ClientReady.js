@@ -6,13 +6,13 @@ import { HumbleBundleGames } from "../cyclic/HumbleBundleGames.js";
 
 const name = Events.ClientReady;
 const once = true;
-function execute(client, connection)
+function execute(client, dbConnection)
 {
   console.log(`Ready! Logged in as ${client.user.tag}`);
 
   client.user.setActivity("Reading...", { type: ActivityType.Custom });
 
-  HumbleBundleGames(client, process.env.HUMBLE_BUNDLE_CHANNEL_ID, connection);
+  HumbleBundleGames(client, process.env.HUMBLE_BUNDLE_CHANNEL_ID, dbConnection);
 }
 
 export { name, once, execute };

@@ -6,7 +6,7 @@ import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 import { Client, Collection, GatewayIntentBits } from "discord.js";
-import connection from "./database/connection.js";
+import dbConnection from "./database/connection.js";
 
 import "./deployCommands.js";
 // #endregion Imports
@@ -62,11 +62,11 @@ for (const file of eventFiles)
   const event = await import(fileUrl);
   if (event.once)
   {
-    client.once(event.name, (...args) => event.execute(...args, connection));
+    client.once(event.name, (...args) => event.execute(...args, dbConnection));
   }
   else
   {
-    client.on(event.name, (...args) => event.execute(...args, connection));
+    client.on(event.name, (...args) => event.execute(...args, dbConnection));
   }
 }
 // #endregion Events
