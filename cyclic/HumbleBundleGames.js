@@ -38,7 +38,7 @@ async function HumbleBundleGames(client, targetChannel, dbConnection, interval =
 
       // Check if previously posted bundles expired
       // Remove them, if so
-      let currentTimeStamp = Math.floor(Date.now() / 1000);
+      const currentTimeStamp = Math.floor(Date.now() / 1000);
       for (let dbBundle of dbBundles)
       {
         if (dbBundle.expiration_timestamp < currentTimeStamp)
